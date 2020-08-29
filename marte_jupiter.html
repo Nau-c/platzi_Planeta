@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu peso en un lugar</title>
+</head>
+
+<body>
+    <h1>Tu peso en otro planeta</h1>
+    <p> En la tierra pesas distinto que en marte o jupiter </p>
+    <script>
+        var usuario = prompt("Introduce tu peso");
+        var planeta = parseInt(prompt("Elige el planeta\n1 donde quieres saber tu peso 1 es marte 2 es jupiter"));
+        var peso = parseFloat(usuario);
+        var g_tierra = 9.8;
+        var g_marte = 3.7;
+        var g_jupiter = 24.8;
+        var peso_final;
+        var nombre;
+        
+
+
+        function is_numeric(usuario) {
+            alert('[error] El campo debe tener valor numerico');
+            return False;
+        }
+
+
+        function is_numeric(planeta) {
+            alert('[error] El campo debe tener valor numerico');
+            return False;
+        }
+
+
+        if (planeta == 1) {
+            is_numeric(planeta);
+            peso_final = peso * g_marte / g_tierra;
+            nombre = "Marte";
+        }
+        else if (planeta == 2) {
+            is_numeric(usuario);
+            peso_final = peso * g_jupiter / g_tierra;
+            nombre = "Jupiter";
+        }
+        else {
+            peso_final = 1000000;
+            nombre = "La cagaste";
+        }
+        peso_final = (peso_final).toFixed(2);
+
+
+
+        document.write("Tu peso en " + nombre + " es <strong>: " + peso_final + " kilos</strong>");
+    </script>
+</body>
+
+</html>
