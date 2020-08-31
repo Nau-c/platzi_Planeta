@@ -2,57 +2,71 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tu peso en un lugar</title>
 </head>
 
 <body>
     <h1>Tu peso en otro planeta</h1>
-    <p> En la tierra pesas distinto que en marte o jupiter </p>
+    <p>En la tierra pesas distinto que en marte o jupiter</p>
     <script>
-        var usuario = prompt("Introduce tu peso");
-        var planeta = parseInt(prompt("Elige el planeta\n1 donde quieres saber tu peso 1 es marte 2 es jupiter"));
-        var peso = parseFloat(usuario);
-        var g_tierra = 9.8;
-        var g_marte = 3.7;
-        var g_jupiter = 24.8;
-        var peso_final;
-        var nombre;
-        
+        // Las variables constantes siempre en mayuscula
+        var G_TIERRA = 9.8;
+        var G_MARTE = 3.7;
+        var G_JUPITER = 24.8;
+
+        // Las variables a introducir por el usuario
+        var usuarioImput = setInputValue("Introduce tu peso");
+        var planetaImput = setInputValue("Elige el planeta\n1 donde quieres saber tu peso 1 es marte 2 es jupiter");
 
 
-        function is_numeric(usuario) {
-            alert('[error] El campo debe tener valor numerico');
-            return False;
+        var pesofinal = 0;
+        var usuarioPeso;
+        var valorPlaneta = "";
+
+        // Función que nos muestra un prompt con el mensaje especificado
+        function setInputValue(message) {
+            return prompt(message);
         }
 
 
-        function is_numeric(planeta) {
-            alert('[error] El campo debe tener valor numerico');
-            return False;
+        // Función que comprueba que el valor que recibe es númerico
+        function is_numeric(num) {
+            return !isNaN(num);
         }
 
+        // Bloque con condición que nos muestra un mensaje en caso que los datos introducidos no sean numericos 
+        if (!isNumeric(usuarioImput)) {
+            alert('[error] El peso debe ser un número');
+            throw new Error();
+        }
+        if (!isNumeric(planetaImput)) {
+            alerta('[Error]El planeta elegido debe ser un número');
+            throw new error();
+        }
 
-        if (planeta == 1) {
-            is_numeric(planeta);
-            peso_final = peso * g_marte / g_tierra;
+        var usuarioPeso = parseFloat(usuarioImput);
+
+
+
+        // Bloque que identifica que planeta hemos elegido y realiza el calculo de tu peso en dicho planeta
+        if (planetaImput == 1) {
+            pesoFinal = peso * / g_tierra;
             nombre = "Marte";
         }
-        else if (planeta == 2) {
-            is_numeric(usuario);
-            peso_final = peso * g_jupiter / g_tierra;
+        else if (planetaImput == 2) {
+            pesoFinal = peso * g_jupiter / g_tierra;
             nombre = "Jupiter";
         }
         else {
-            peso_final = 1000000;
-            nombre = "La cagaste";
+            alert('[Error]La cagaste');
+            throw new error();
         }
-        peso_final = (peso_final).toFixed(2);
+        pesoFinal = (pesoFinal).toFixed(2);
 
+        document.write("Tu peso en " + valorPlaneta + " es <strong>: " + pesoFinal + " kilos</strong>");
 
-
-        document.write("Tu peso en " + nombre + " es <strong>: " + peso_final + " kilos</strong>");
     </script>
 </body>
 
