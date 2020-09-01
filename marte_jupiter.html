@@ -19,7 +19,7 @@
         // Las variables a introducir por el usuario
         var usuarioImput = setInputValue("Introduce tu peso");
         var planetaImput = setInputValue("Elige el planeta\n1 donde quieres saber tu peso 1 es marte 2 es jupiter");
-
+        //Declaración de variables 
 
         var pesofinal = 0;
         var usuarioPeso;
@@ -32,7 +32,7 @@
 
 
         // Función que comprueba que el valor que recibe es númerico
-        function is_numeric(num) {
+        function isNumeric(num) {
             return !isNaN(num);
         }
 
@@ -42,29 +42,30 @@
             throw new Error();
         }
         if (!isNumeric(planetaImput)) {
-            alerta('[Error]El planeta elegido debe ser un número');
-            throw new error();
+            alert90('[Error]El planeta elegido debe ser un número');
+            throw new eError();
         }
-
+        // usamos la función parseFloat para que nos devuelva un número flotante con decimales 
         var usuarioPeso = parseFloat(usuarioImput);
 
 
 
         // Bloque que identifica que planeta hemos elegido y realiza el calculo de tu peso en dicho planeta
-        if (planetaImput == 1) {
-            pesoFinal = peso * / g_tierra;
-            nombre = "Marte";
+        if (planetaImput == "1") {
+            pesoFinal = usuarioPeso * G_MARTE / G_TIERRA
+            valorPlaneta = "Marte";
         }
-        else if (planetaImput == 2) {
-            pesoFinal = peso * g_jupiter / g_tierra;
-            nombre = "Jupiter";
+        else if (planetaImput == "2") {
+            pesoFinal = usuarioPeso * G_JUPITER / G_TIERRA;
+            valorPlaneta = "Jupiter";
         }
         else {
-            alert('[Error]La cagaste');
-            throw new error();
+            alert('[Error]La cagaste, el Planeta selecionado no esta listado');
+            throw new Error();
         }
+        // funcion toFixed nos muestra 2 decimales o los que queramos 
         pesoFinal = (pesoFinal).toFixed(2);
-
+        // por último imprimimos por pantalla el nombre del planeta elegido y el peso del planeta selecionado tras haber pasado el peso por el bucle if con la instrucción 
         document.write("Tu peso en " + valorPlaneta + " es <strong>: " + pesoFinal + " kilos</strong>");
 
     </script>
